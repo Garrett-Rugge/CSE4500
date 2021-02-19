@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>JavaScript - read JSON from URL</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+</head>
+
+<body>
+    <div class="mypanel"></div>
+
+    <script>
+    $.getJSON('http://time.jsontest.com', function(data) {
+        
+	    var obj = JSON.parse('{"date"=1-0-21, "time"=12:00 AM, "milliseconds_since_epoch"=0}');
+
+        var text = `UK Date: ${data.date}<br>
+                    UK Time: ${data.time}<br>
+                    Unix time: ${data.milliseconds_since_epoch}<br>
+		    Parse Date: ${obj.date}<br>
+		    Parse time: ${obj.time}<br>
+		    Parse Unix: ${obj.milliseconds_since_epoch}<br>`
+	  	
+                    
+        
+        $(".mypanel").html(text);
+    });
+    </script>
+
+</body>
+</html>
